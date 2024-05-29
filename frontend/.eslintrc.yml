@@ -38,3 +38,5 @@ rules:
   comma-dangle: 0
   import/no-extraneous-dependencies: 'off'
   object-curly-newline: 'off'
+  implicit-arrow-linebreak: 'off'
+  react/jsx-one-expression-per-line: 'off'
