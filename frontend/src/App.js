@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ROUTES } from './utils/router';
 import Login from './pages/Login/Login.jsx';
 import SignUp from './pages/SignUp/SignUp.jsx';
@@ -25,11 +25,14 @@ const getElement = (key) => {
 };
 
 const App = () => (
-  <Routes>
-    {Object.entries(ROUTES).map(([key, path]) => (
-      <Route key={key} path={path} element={getElement(key)} />
-    ))}
-    <Route path="*" element={<NotFound />} />
-  </Routes>
+  <BrowserRouter>
+    <Routes>
+      {Object.entries(ROUTES).map(([key, path]) => (
+        <Route key={key} path={path} element={getElement(key)} />
+      ))}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </BrowserRouter>
 );
+
 export default App;
