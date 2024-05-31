@@ -11,15 +11,18 @@ import { signUpValidationSchema } from '../../utils/validationSchemas';
 import SignUpComponent from '../../components/SignUpComponent.jsx';
 import signUpAvatar from '../../assets/imgSignUpPage/avatar_signUp.png';
 import { ROUTES } from '../../utils/router';
+import useAuthContext from '../../hooks/useAuthContext.js';
 
 const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [signUp] = useAuthenticateSignUp();
+  const { logIn } = useAuthContext();
 
   const handleFormSubmit = async (values, { setSubmitting, setErrors }) => {
     try {
       const response = await signUp(values).unwrap();
+      logIn(response.token, values.username);
       dispatch(
         setUserData({ token: response.token, username: values.username })
       );
@@ -45,7 +48,7 @@ const SignUp = () => {
         {({ isSubmitting, errors }) => (
           <Form className="w-50">
             <h1 className="text-center mb-4">Регистрация</h1>
-            <BootstrapForm.Group className="mb-3" controlId="username">
+            <BootstrapForm.Group className="mb-3">
               <BootstrapForm.Label htmlFor="username">
                 Ваш ник
               </BootstrapForm.Label>
@@ -63,7 +66,7 @@ const SignUp = () => {
               />
             </BootstrapForm.Group>
 
-            <BootstrapForm.Group className="mb-3" controlId="password">
+            <BootstrapForm.Group className="mb-3">
               <BootstrapForm.Label htmlFor="password">
                 Пароль
               </BootstrapForm.Label>
@@ -81,7 +84,7 @@ const SignUp = () => {
               />
             </BootstrapForm.Group>
 
-            <BootstrapForm.Group className=" mb-4" controlId="confirmPassword">
+            <BootstrapForm.Group className=" mb-4">
               <BootstrapForm.Label htmlFor="confirmPassword">
                 Подтвердить пароль
               </BootstrapForm.Label>
