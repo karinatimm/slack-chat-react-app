@@ -41,8 +41,7 @@ const appSlice = createSlice({
       state.modal.isOpen = isOpen;
       state.modal.type = type;
       state.currentlyBeingEditedChannel = currentlyBeingEditedChannel || null;
-      state.currentlyBeingEditedChannelId =
-        currentlyBeingEditedChannelId || null;
+      state.currentlyBeingEditedChannelId = currentlyBeingEditedChannelId || null;
     },
     setChannels: (state, action) => {
       state.channels = action.payload;
@@ -55,7 +54,6 @@ const appSlice = createSlice({
 
 export const {
   switchChannel, toggleModal, setChannels, clearMessages,
-} =
-  appSlice.actions;
+} = appSlice.actions;
 
 export default appSlice.reducer;
