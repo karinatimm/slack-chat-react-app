@@ -18,7 +18,8 @@ const NotFoundComponent = () => {
       <img src={notFoundAvatar} alt="Page wasn't found" className="img-fluid" />
       <h1 className="h4 text-muted">{t('notFoundPage.notFoundPageTitle')}</h1>
       <p className="text-muted">
-        {t('notFoundPage.notFoundPageText')}{' '}
+        {t('notFoundPage.notFoundPageText')}
+        {' '}
         <a href={ROUTES.homePage} onClick={handleHomePageClick}>
           {t('notFoundPage.notFoundPageLink')}
         </a>
