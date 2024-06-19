@@ -11,8 +11,7 @@ import { useUpdateChannelMutation } from '../../api/channelsApi.js';
 import { useChannelValidationSchema } from '../../utils/validationSchemas.js';
 
 const RenameChannelComponent = ({ handleClosingModalWindow }) => {
-  const { currentlyBeingEditedChannelId, currentlyBeingEditedChannel } =
-    useSelector((state) => state.appManaging);
+  const { currentlyBeingEditedChannelId, currentlyBeingEditedChannel } = useSelector((state) => state.appManaging);
   const { t } = useTranslation();
   const channelSchema = useChannelValidationSchema();
   const [updateChannel] = useUpdateChannelMutation();
