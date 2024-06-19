@@ -11,8 +11,8 @@ const initialState = {
   channels: [],
   currentChannel: defaultChannel.name,
   currentChannelId: defaultChannel.id,
-  currentlyBeingEditedChannel: null,
-  currentlyBeingEditedChannelId: null,
+  currEditedChannel: null,
+  currEditedChannelId: null,
   modal: {
     isOpen: false,
     type: null,
@@ -33,21 +33,15 @@ const appSlice = createSlice({
     },
     toggleModal: (state, action) => {
       const {
-        isOpen,
-        type,
-        currentlyBeingEditedChannel,
-        currentlyBeingEditedChannelId,
+        isOpen, type, currEditedChannel, currEditedChannelId,
       } = action.payload;
       state.modal.isOpen = isOpen;
       state.modal.type = type;
-      state.currentlyBeingEditedChannel = currentlyBeingEditedChannel || null;
-      state.currentlyBeingEditedChannelId = currentlyBeingEditedChannelId || null;
+      state.currEditedChannel = currEditedChannel || null;
+      state.currEditedChannelId = currEditedChannelId || null;
     },
     setChannels: (state, action) => {
       state.channels = action.payload;
-    },
-    clearMessages: (state) => {
-      state.messages.byChannelId[state.currentChannelId] = [];
     },
   },
 });
