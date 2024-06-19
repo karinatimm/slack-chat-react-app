@@ -39,7 +39,7 @@ export const useChannelValidationSchema = () => {
       .required(t('homePage.modalWindow.errors.requiredField'))
       .notOneOf(
         channels.map((channel) => channel.name),
-        t('homePage.modalWindow.errors.uniqueName')
+        t('homePage.modalWindow.errors.uniqueName'),
       ),
   });
 };
