@@ -1,22 +1,20 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-// import useAuthHeaders from '../hooks/useAuthHeaders';
 import { API_ROUTES } from '../utils/router';
 
 export const authenticateApi = createApi({
   reducerPath: 'authentication',
   baseQuery: fetchBaseQuery({
     baseUrl: API_ROUTES.base,
-    // prepareHeaders: useAuthHeaders,
   }),
   endpoints: (builder) => ({
-    logInRequest: builder.mutation({
+    logInUser: builder.mutation({
       query: (existingUser) => ({
         url: API_ROUTES.login,
         method: 'POST',
         body: existingUser,
       }),
     }),
-    signUpRequest: builder.mutation({
+    signUpUser: builder.mutation({
       query: (newUser) => ({
         url: API_ROUTES.signup,
         method: 'POST',
@@ -27,6 +25,6 @@ export const authenticateApi = createApi({
 });
 
 export const {
-  useLogInRequestMutation: useAuthenticateLogin,
-  useSignUpRequestMutation: useAuthenticateSignUp,
+  useLogInUserMutation: useAuthenticateUserLogIn,
+  useSignUpUserMutation: useAuthenticateUserSignUp,
 } = authenticateApi;
