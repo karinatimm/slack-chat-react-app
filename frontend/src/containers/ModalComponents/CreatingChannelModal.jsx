@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import {
+  Formik, Form, Field, ErrorMessage,
+} from 'formik';
 import { Modal, Form as BootstrapForm, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -59,7 +61,9 @@ const AddChannelComponent = ({ handleClosingModalWindow }) => {
           validateOnBlur={false}
           validateOnChange={false}
         >
-          {({ isSubmitting, errors }) => (
+          {({
+            isSubmitting, errors, handleChange, handleBlur, values,
+          }) => (
             <Form>
               <BootstrapForm.Group>
                 <BootstrapForm.Label htmlFor="name">
@@ -68,7 +72,10 @@ const AddChannelComponent = ({ handleClosingModalWindow }) => {
                 <Field name="name">
                   {({ field }) => (
                     <BootstrapForm.Control
-                      {...field}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.name}
+                      name={field.name}
                       type="text"
                       id="name"
                       placeholder={t('homePage.modalWindow.addedChannelName')}
@@ -84,7 +91,7 @@ const AddChannelComponent = ({ handleClosingModalWindow }) => {
               </BootstrapForm.Group>
 
               {errors.general && (
-                <div className="text-danger mb-3">{errors.general}</div>
+              <div className="text-danger mb-3">{errors.general}</div>
               )}
 
               <BootstrapForm.Group className="d-flex justify-content-end mt-3">
