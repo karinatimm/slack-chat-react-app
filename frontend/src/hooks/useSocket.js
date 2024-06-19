@@ -17,11 +17,11 @@ const useSocket = (currentChannelId) => {
           undefined,
           (existingMessages) => {
             existingMessages.push(newMessage);
-          }
-        )
+          },
+        ),
       );
     },
-    [dispatch]
+    [dispatch],
   );
 
   const handleFetchingNewChannel = useCallback(
@@ -32,11 +32,11 @@ const useSocket = (currentChannelId) => {
           undefined,
           (existingChannels) => {
             existingChannels.push(newChannel);
-          }
-        )
+          },
+        ),
       );
     },
-    [dispatch]
+    [dispatch],
   );
 
   const handleRenamingChannel = useCallback(
@@ -47,17 +47,17 @@ const useSocket = (currentChannelId) => {
           undefined,
           (existingChannels) => {
             const channel = existingChannels.find(
-              (c) => c.id === updatedChannel.id
+              (c) => c.id === updatedChannel.id,
             );
             if (channel) {
               channel.name = updatedChannel.name;
               dispatch(switchChannel({ name: channel.name, id: channel.id }));
             }
-          }
-        )
+          },
+        ),
       );
     },
-    [dispatch]
+    [dispatch],
   );
 
   const handleDeletingChannel = useCallback(
@@ -66,15 +66,14 @@ const useSocket = (currentChannelId) => {
         channelsApi.util.updateQueryData(
           'fetchChannels',
           undefined,
-          (existingChannels) =>
-            existingChannels.filter((channel) => channel.id !== id)
-        )
+          (existingChannels) => existingChannels.filter((channel) => channel.id !== id),
+        ),
       );
       if (currentChannelId === id) {
         dispatch(switchChannel({ name: 'general', id: '1' }));
       }
     },
-    [currentChannelId, dispatch]
+    [currentChannelId, dispatch],
   );
 
   useEffect(() => {
