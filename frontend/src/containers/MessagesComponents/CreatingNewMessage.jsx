@@ -33,7 +33,6 @@ const CreatingNewMessage = () => {
       });
       resetForm();
     } catch (error) {
-      console.error('Error adding message:', error);
       toast.error(t('homePage.toastMessages.errors.sendMessageError'), {
         position: 'top-center',
         autoClose: 2000,
@@ -55,16 +54,18 @@ const CreatingNewMessage = () => {
               {({ field }) => (
                 <BootstrapForm.Control
                   {...field}
+                  disabled={isSubmitting}
+                  aria-label={t('homePage.inputMessage')}
                   type="text"
                   id="body"
                   placeholder={t('homePage.inputMessagePlaceholder')}
                   className="border-0 p-0 ps-2 form-control"
                   ref={inputNewMessageRef}
-                  disabled={isSubmitting}
                 />
               )}
             </Field>
             <Button
+              disabled={isSubmitting}
               type="submit"
               className="btn btn-group-vertical"
               style={{ backgroundColor: 'transparent', border: 'none' }}
