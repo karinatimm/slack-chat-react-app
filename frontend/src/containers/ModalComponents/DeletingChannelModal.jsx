@@ -12,7 +12,7 @@ import {
 
 const DeleteChannelComponent = ({ handleClosingModalWindow }) => {
   const { currentChannelId, currentlyBeingEditedChannelId } = useSelector(
-    (state) => state.appManaging
+    (state) => state.appManaging,
   );
   const { t } = useTranslation();
   const dispatch = useDispatch();
