@@ -34,7 +34,6 @@ const DeleteChannelComponent = ({ handleClosingModalWindow }) => {
 
       handleClosingModalWindow();
     } catch (err) {
-      console.error('Error deleting channel:', err);
       toast.error(t('homePage.modalWindow.channelRemoveError'), {
         position: 'top-center',
         autoClose: 2000,
