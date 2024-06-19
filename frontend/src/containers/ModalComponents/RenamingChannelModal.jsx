@@ -11,7 +11,9 @@ import { useUpdateChannelMutation } from '../../api/channelsApi.js';
 import { useChannelValidationSchema } from '../../utils/validationSchemas.js';
 
 const RenameChannelComponent = ({ handleClosingModalWindow }) => {
-  const { currentlyBeingEditedChannelId, currentlyBeingEditedChannel } = useSelector((state) => state.appManaging);
+  const { currEditedChannelId, currEditedChannel } = useSelector(
+    (state) => state.appManaging,
+  );
   const { t } = useTranslation();
   const channelSchema = useChannelValidationSchema();
   const [updateChannel] = useUpdateChannelMutation();
@@ -25,7 +27,7 @@ const RenameChannelComponent = ({ handleClosingModalWindow }) => {
   const handleRenamingChannel = async (channelName) => {
     const filteredChannelName = filter.clean(channelName);
     const newChannel = {
-      id: currentlyBeingEditedChannelId,
+      id: currEditedChannelId,
       name: filteredChannelName,
     };
 
@@ -52,7 +54,7 @@ const RenameChannelComponent = ({ handleClosingModalWindow }) => {
 
       <Modal.Body>
         <Formik
-          initialValues={{ name: currentlyBeingEditedChannel }}
+          initialValues={{ name: currEditedChannel }}
           validationSchema={channelSchema}
           onSubmit={(values, { setSubmitting }) => {
             handleRenamingChannel(values.name);
