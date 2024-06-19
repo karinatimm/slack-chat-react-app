@@ -40,3 +40,8 @@ rules:
   object-curly-newline: 'off'
   implicit-arrow-linebreak: 'off'
   react/jsx-one-expression-per-line: 'off'
+  operator-linebreak: 'off'
+  function-paren-newline: 'off'
+  react/jsx-curly-newline: 'off'
+  no-confusing-arrow: 'off'
+  react/jsx-props-no-spreading: 'off'
