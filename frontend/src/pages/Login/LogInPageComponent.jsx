@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useAuthenticateLogin } from '../../api/authApi.js';
+import { useAuthenticateUserLogIn } from '../../api/authApi.js';
 import { setUserData } from '../../store/entities/authSlice.js';
 import { useLoginValidationSchema } from '../../utils/validationSchemas.js';
 import LoginComponent from '../../components/LogIn.jsx';
@@ -19,7 +19,7 @@ const Login = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [logInRequest] = useAuthenticateLogin();
+  const [logInRequest] = useAuthenticateUserLogIn();
   const { logIn } = useAuthContext();
   const loginValidationSchema = useLoginValidationSchema();
 
