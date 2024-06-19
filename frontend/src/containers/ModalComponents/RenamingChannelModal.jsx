@@ -31,12 +31,11 @@ const RenameChannelComponent = ({ handleClosingModalWindow }) => {
     try {
       await updateChannel(newChannel);
       toast.success(t('homePage.modalWindow.channelRenamed'), {
-        position: 'top-right',
+        position: 'top-center',
         autoClose: 2000,
       });
       handleClosingModalWindow();
     } catch (error) {
-      console.error('Error renaming channel:', error);
       toast.error(t('homePage.modalWindow.channelRenameError'), {
         position: 'top-center',
         autoClose: 2000,
