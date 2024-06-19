@@ -36,7 +36,6 @@ const AddChannelComponent = ({ handleClosingModalWindow }) => {
       handleClosingModalWindow();
       dispatch(switchChannel({ name: channelNameResponse, id: channelId }));
     } catch (error) {
-      console.error('Error creating channel:', error);
       toast.error(t('homePage.modalWindow.channelCreationError'), {
         position: 'top-center',
         autoClose: 2000,
@@ -73,7 +72,7 @@ const AddChannelComponent = ({ handleClosingModalWindow }) => {
                       type="text"
                       id="name"
                       placeholder={t('homePage.modalWindow.addedChannelName')}
-                      ref={modalInputRef} // Assign modalInputRef here
+                      ref={modalInputRef}
                     />
                   )}
                 </Field>
