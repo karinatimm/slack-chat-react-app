@@ -47,8 +47,8 @@ const ChannelListItem = ({ channel, isToolbar }) => {
       toggleModal({
         isOpen: true,
         type: 'deletingChannel',
-        currentlyBeingEditedChannelId: channel.id,
-        currentlyBeingEditedChannel: channel.name,
+        currEditedChannelId: channel.id,
+        curreEditedChannel: channel.name,
       }),
     );
   };
@@ -58,8 +58,8 @@ const ChannelListItem = ({ channel, isToolbar }) => {
       toggleModal({
         isOpen: true,
         type: 'renamingChannel',
-        currentlyBeingEditedChannelId: channel.id,
-        currentlyBeingEditedChannel: channel.name,
+        currEditedChannelId: channel.id,
+        currEditedChannel: channel.name,
       }),
     );
   };
