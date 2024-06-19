@@ -1,5 +1,7 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import {
+  Formik, Form, Field, ErrorMessage,
+} from 'formik';
 import { Form as BootstrapForm, Button } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,7 +30,7 @@ const SignUp = () => {
       const response = await signUpRequest(values).unwrap();
       logIn(response.token, values.username);
       dispatch(
-        setUserData({ token: response.token, username: values.username })
+        setUserData({ token: response.token, username: values.username }),
       );
       setSubmitting(false);
       navigate(ROUTES.homePage);
