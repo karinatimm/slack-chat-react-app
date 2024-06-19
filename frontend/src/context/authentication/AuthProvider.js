@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
       logIn,
       logOut,
     }),
-    [isAuthenticated]
+    [isAuthenticated],
   );
 
   return (
