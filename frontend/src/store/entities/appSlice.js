@@ -53,7 +53,9 @@ const appSlice = createSlice({
   },
 });
 
-export const { switchChannel, toggleModal, setChannels, clearMessages } =
+export const {
+  switchChannel, toggleModal, setChannels, clearMessages,
+} =
   appSlice.actions;
 
 export default appSlice.reducer;
