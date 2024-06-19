@@ -49,7 +49,7 @@ const ChannelListItem = ({ channel, isToolbar }) => {
         type: 'deletingChannel',
         currentlyBeingEditedChannelId: channel.id,
         currentlyBeingEditedChannel: channel.name,
-      })
+      }),
     );
   };
 
@@ -60,7 +60,7 @@ const ChannelListItem = ({ channel, isToolbar }) => {
         type: 'renamingChannel',
         currentlyBeingEditedChannelId: channel.id,
         currentlyBeingEditedChannel: channel.name,
-      })
+      }),
     );
   };
 
