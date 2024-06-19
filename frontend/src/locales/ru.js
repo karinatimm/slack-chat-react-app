@@ -51,17 +51,17 @@ export default {
       channels: 'Каналы',
       createNewChannel: 'Создать новый канал',
       manageChannel: 'Управление каналом',
-      newMessagePlaceholderr: 'Введите сообщение...',
-      sendMessageButton: 'Отправить сообщение',
-      newMessageInput: 'Новое сообщение',
-      messagesCount: {
-        message_zero: '{{count}} сообщений',
-        message_one: '{{count}} сообщение',
-        message_few: '{{count}} сообщения',
-        message_many: '{{count}} сообщений',
+      inputMessagePlaceholder: 'Введите сообщение...',
+      inputMessage: 'Новое сообщение',
+      countMessages: {
+        messages_null: '{{count}} сообщений',
+        messages_one: '{{count}} сообщение',
+        messages_few: '{{count}} сообщения',
+        messages_many: '{{count}} сообщений',
       },
       button: {
         logOutButton: 'Выйти',
+        sendMessageButton: 'Отправить сообщение',
       },
 
       messagesForUser: {
@@ -71,14 +71,14 @@ export default {
       },
 
       modalWindow: {
-        resetButton: 'Отменить',
-        sendButton: 'Отправить',
-
-        addNewChannelHeader: 'Добавить канал',
-        newChannelName: 'Имя канала',
+        addNewChannel: 'Добавить канал',
+        addedChannelName: 'Имя канала',
         channelCreated: 'Канал создан',
         channelRenamed: 'Канал переименован',
         channelRemoved: 'Канал удалён',
+        channelCreationError: 'Канал не создан',
+        channelRemoveError: 'Канал не удалён',
+        channelRenameError: 'Канал не переименован',
 
         renameChannel: 'Переименовать канал',
         deleteChannel: 'Удалить канал',
@@ -86,11 +86,21 @@ export default {
 
         deleteButton: 'Удалить',
         renameDropMenu: 'Переименовать',
+        deleteDropMenu: 'Удалить',
         errors: {
           uniqueName: 'Должно быть уникальным',
           minLengthRequired: 'От 3 до 20 символов',
           maxLengthRequired: 'От 3 до 20 символов',
           requiredField: 'Обязательное поле',
+        },
+        button: {
+          resetButton: 'Отменить',
+          sendButton: 'Отправить',
+        },
+      },
+      toastMessages: {
+        errors: {
+          sendMessageError: 'Сообщение не отправлено',
         },
       },
     },
