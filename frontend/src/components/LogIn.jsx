@@ -34,7 +34,8 @@ const LoginComponent = ({ children, loginAvatar }) => {
             </div>
             <div className="card-footer p-4">
               <div className="text-center">
-                <span>{t('logInPage.form.formFooter')}</span>{' '}
+                <span>{t('logInPage.form.formFooter')}</span>
+                {' '}
                 <a href={ROUTES.signup} onClick={handleSignUpClick}>
                   {t('logInPage.form.signupLink')}
                 </a>
