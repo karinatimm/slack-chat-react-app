@@ -39,7 +39,7 @@ rules:
   import/no-extraneous-dependencies: 'off'
   function-paren-newline: 'off'
   no-confusing-arrow: 'off'
-  max-len: 'off'
+  # max-len: 'off'
   # operator-linebreak: 'off'
   # react/jsx-one-expression-per-line: 'off'
   # comma-dangle: 0
