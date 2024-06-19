@@ -13,12 +13,11 @@ const store = configureStore({
     authenticateUser: authSlice,
     appManaging: appSlice,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(
-      authenticateApi.middleware,
-      channelsApi.middleware,
-      messagesApi.middleware
-    ),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(
+    authenticateApi.middleware,
+    channelsApi.middleware,
+    messagesApi.middleware,
+  ),
 });
 
 export default store;
