@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const MessageList = ({ messages, children }) => {
   const { currentChannel, currentChannelId } = useSelector(
-    (state) => state.appManaging
+    (state) => state.appManaging,
   );
   const { t } = useTranslation();
 
