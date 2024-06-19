@@ -11,7 +11,7 @@ import {
 } from '../../api/channelsApi.js';
 
 const DeleteChannelComponent = ({ handleClosingModalWindow }) => {
-  const { currentChannelId, currentlyBeingEditedChannelId } = useSelector(
+  const { currentChannelId, currEditedChannelId } = useSelector(
     (state) => state.appManaging,
   );
   const { t } = useTranslation();
@@ -21,9 +21,9 @@ const DeleteChannelComponent = ({ handleClosingModalWindow }) => {
 
   const handleDeletingChannel = async () => {
     try {
-      await deleteChannel({ id: currentlyBeingEditedChannelId });
+      await deleteChannel({ id: currEditedChannelId });
 
-      if (currentChannelId === currentlyBeingEditedChannelId) {
+      if (currentChannelId === currEditedChannelId) {
         dispatch(switchChannel({ name: 'general', id: '1' }));
       }
 
