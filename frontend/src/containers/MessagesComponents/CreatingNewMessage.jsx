@@ -43,9 +43,7 @@ const CreatingNewMessage = () => {
   return (
     <Formik
       initialValues={{ body: '' }}
-      onSubmit={(values, { resetForm }) =>
-        handleCreatingNewMessage(values.body, resetForm)
-      }
+      onSubmit={(values, { resetForm }) => handleCreatingNewMessage(values.body, resetForm)}
     >
       {({ isSubmitting }) => (
         <Form noValidate className="py-1 border rounded-2">
@@ -53,7 +51,10 @@ const CreatingNewMessage = () => {
             <Field name="body">
               {({ field }) => (
                 <BootstrapForm.Control
-                  {...field}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                  value={field.value}
+                  name={field.name}
                   disabled={isSubmitting}
                   aria-label={t('homePage.inputMessage')}
                   type="text"
