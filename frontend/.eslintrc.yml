@@ -18,6 +18,7 @@ plugins:
   - react-hooks
 
 rules:
+  #
   import/extensions: 0
   import/no-unresolved: 0
   react/prop-types: 0
@@ -36,10 +37,11 @@ rules:
   react/jsx-filename-extension: [1, { 'extensions': ['.js', '.jsx'] }]
   functional/no-return-void: 0
   import/no-extraneous-dependencies: 'off'
-  react/jsx-one-expression-per-line: 'off'
-  operator-linebreak: 'off'
   function-paren-newline: 'off'
   no-confusing-arrow: 'off'
+  max-len: 'off'
+  # operator-linebreak: 'off'
+  # react/jsx-one-expression-per-line: 'off'
   # comma-dangle: 0
   # object-curly-newline: 'off'
   # react/jsx-curly-newline: 'off'
