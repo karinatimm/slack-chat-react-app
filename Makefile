@@ -17,4 +17,4 @@ fix:
 	make -C frontend fix
 
 start:
-	make start-backend & make start-frontend
+	npx start-server -s ./frontend/build
