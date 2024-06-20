@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuthenticateUserLogIn } from '../../api/authApi.js';
 import { setUserData } from '../../store/entities/authSlice.js';
 import { useLoginValidationSchema } from '../../utils/validationSchemas.js';
-import LoginComponent from '../../components/LogIn.jsx';
+import LoginComponent from '../../components/PagesComponents/LogIn.jsx';
 import loginAvatar from '../../assets/imgLoginPage/avatar_login.png';
 import { ROUTES } from '../../utils/router.js';
 import useAuthContext from '../../hooks/useAuthContext.js';
