@@ -1,11 +1,6 @@
 import { createContext } from 'react';
+import { DEFAULT_AUTH_CONTEXT_VALUE } from '../../utils/config';
 
-const defaultAuthContextValue = {
-  isAuthenticated: false,
-  logIn: () => {},
-  logOut: () => {},
-};
+const AuthContext = createContext(DEFAULT_AUTH_CONTEXT_VALUE);
 
-const AuthContext = createContext(defaultAuthContextValue);
-
-export { AuthContext, defaultAuthContextValue };
+export { AuthContext, DEFAULT_AUTH_CONTEXT_VALUE };
