@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuthenticateUserSignUp } from '../../api/authApi.js';
 import { setUserData } from '../../store/entities/authSlice.js';
 import { useSignUpValidationSchema } from '../../utils/validationSchemas.js';
-import SignUpComponent from '../../components/SignUp.jsx';
+import SignUpComponent from '../../components/PagesComponents/SignUp.jsx';
 import signUpAvatar from '../../assets/imgSignUpPage/avatar_signUp.png';
 import { ROUTES } from '../../utils/router.js';
 import useAuthContext from '../../hooks/useAuthContext.js';
