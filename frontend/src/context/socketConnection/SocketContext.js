@@ -1,9 +1,6 @@
 import { createContext } from 'react';
+import { DEFAULT_SOCKET_CONTEXT_VALUE } from '../../utils/config';
 
-const defaultSocketContextValue = {
-  socket: {},
-};
+const SocketContext = createContext(DEFAULT_SOCKET_CONTEXT_VALUE);
 
-const SocketContext = createContext(defaultSocketContextValue);
-
-export { SocketContext, defaultSocketContextValue };
+export { SocketContext, DEFAULT_SOCKET_CONTEXT_VALUE };
