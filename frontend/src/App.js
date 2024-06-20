@@ -6,7 +6,7 @@ import SignUp from './pages/SignUp/SignUpPageComponent.jsx';
 import NotFound from './pages/NotFound/NotFoundPageComponent.jsx';
 import Home from './pages/Home/HomePageComponent.jsx';
 import PrivateRoute from './containers/Routes/PrivateRoute.jsx';
-import MainNav from './components/MainNav.jsx';
+import MainNav from './components/PagesComponents/MainNav.jsx';
 
 const getElement = (key) => {
   switch (key) {
@@ -29,6 +29,7 @@ const App = () => (
   <BrowserRouter>
     <div className="d-flex flex-column h-100">
       <MainNav />
+
       <Routes>
         {Object.entries(ROUTES).map(([key, path]) => (
           <Route key={key} path={path} element={getElement(key)} />
