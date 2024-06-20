@@ -20,10 +20,10 @@ export const messagesApi = createApi({
       }),
     }),
     updateMessage: builder.mutation({
-      query: ({ id, ...patch }) => ({
+      query: ({ id, updatedMessage }) => ({
         url: id,
         method: 'PATCH',
-        body: patch,
+        body: updatedMessage,
       }),
     }),
     deleteMessage: builder.mutation({
