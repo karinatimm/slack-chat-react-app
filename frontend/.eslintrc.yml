@@ -39,11 +39,3 @@ rules:
   import/no-extraneous-dependencies: 'off'
   function-paren-newline: 'off'
   no-confusing-arrow: 'off'
-  # max-len: 'off'
-  # operator-linebreak: 'off'
-  # react/jsx-one-expression-per-line: 'off'
-  # comma-dangle: 0
-  # object-curly-newline: 'off'
-  # react/jsx-curly-newline: 'off'
-  # implicit-arrow-linebreak: 'off'
-  # react/jsx-props-no-spreading: 'off'
