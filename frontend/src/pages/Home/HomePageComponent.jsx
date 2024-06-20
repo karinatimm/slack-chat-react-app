@@ -4,11 +4,11 @@ import { ToastContainer } from 'react-toastify';
 import { useFetchChannelsQuery } from '../../api/channelsApi';
 import { useFetchMessagesQuery } from '../../api/messagesApi';
 import { toggleModal } from '../../store/entities/appSlice';
-import ChannelsList from '../../containers/ChannelsComponents/ChannelsList';
-import MessagesList from '../../containers/MessagesComponents/MessageList';
-import CreatingNewMessage from '../../containers/MessagesComponents/CreatingNewMessage';
+import ChannelsListToolbar from '../../containers/ChannelsContainers/ChannelsListToolbar';
+import MessageListBox from '../../components/MessagesComponents/MessageListBox';
+import CreatingNewMessage from '../../containers/MessagesContainers/CreatingNewMessage';
 import { SocketContext } from '../../context/socketConnection/SocketContext';
-import RenderModalSwitcher from '../../containers/ModalComponents/RenderModalSwitcher';
+import RenderModalSwitcher from '../../components/ModalRenderingComponents/RenderModalSwitcher';
 import 'react-toastify/dist/ReactToastify.css';
 import useSocket from '../../hooks/useSocket';
 
@@ -29,11 +29,11 @@ const HomePageComponent = () => {
   return (
     <div className="container h-100 my-4 overflow-hidden rounded shadow">
       <div className="row h-100 bg-white flex-md-row">
-        <ChannelsList channels={channels} />
+        <ChannelsListToolbar channels={channels} />
 
-        <MessagesList messages={messages}>
+        <MessageListBox messages={messages}>
           <CreatingNewMessage />
-        </MessagesList>
+        </MessageListBox>
       </div>
       <RenderModalSwitcher
         isOpen={modal.isOpen}
