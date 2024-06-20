@@ -38,4 +38,3 @@ rules:
   functional/no-return-void: 0
   import/no-extraneous-dependencies: 'off'
   function-paren-newline: 'off'
-  no-confusing-arrow: 'off'
