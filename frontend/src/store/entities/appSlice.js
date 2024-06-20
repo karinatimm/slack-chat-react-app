@@ -1,24 +1,17 @@
-/* eslint no-param-reassign: "error" */
+/* eslint-disable no-param-reassign */
 
 import { createSlice } from '@reduxjs/toolkit';
-
-const defaultChannel = {
-  name: 'general',
-  id: '1',
-};
+import { DEFAULT_CHANNEL } from '../../utils/config';
 
 const initialState = {
   channels: [],
-  currentChannel: defaultChannel.name,
-  currentChannelId: defaultChannel.id,
+  currentChannel: DEFAULT_CHANNEL.name,
+  currentChannelId: DEFAULT_CHANNEL.id,
   currEditedChannel: null,
   currEditedChannelId: null,
   modal: {
     isOpen: false,
     type: null,
-  },
-  messages: {
-    byChannelId: {},
   },
 };
 
