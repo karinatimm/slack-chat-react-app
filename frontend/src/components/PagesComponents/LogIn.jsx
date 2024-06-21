@@ -1,18 +1,9 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
-
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ROUTES } from '../../utils/router';
 
 const LoginComponent = ({ children, loginAvatar }) => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
-
-  const handleSignUpClick = (event) => {
-    event.preventDefault();
-    navigate(ROUTES.signup);
-  };
 
   return (
     <div className="container-fluid h-100">
@@ -26,7 +17,7 @@ const LoginComponent = ({ children, loginAvatar }) => {
               <div className="col-12 col-md-6 d-flex align-items-center justify-content-center">
                 <img
                   src={loginAvatar}
-                  alt="Login Image"
+                  alt={t('logInPage.img.loginAlt')}
                   className="rounded-circle img-fluid"
                 />
               </div>
@@ -36,9 +27,7 @@ const LoginComponent = ({ children, loginAvatar }) => {
               <div className="text-center">
                 <span>{t('logInPage.form.formFooter')}</span>
                 {' '}
-                <a href={ROUTES.signup} onClick={handleSignUpClick}>
-                  {t('logInPage.form.signupLink')}
-                </a>
+                <Link to={ROUTES.signup}>{t('logInPage.form.signupLink')}</Link>
               </div>
             </div>
           </div>
