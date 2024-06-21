@@ -3,7 +3,7 @@ import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
 import { Form as BootstrapForm, Button } from 'react-bootstrap';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
@@ -11,11 +11,12 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useAuthenticateUserLogIn } from '../../api/authApi.js';
 import { setUserData } from '../../store/entities/authSlice.js';
-import { useLoginValidationSchema } from '../../utils/validationSchemas.js';
+import { getLoginValidationSchema } from '../../utils/validationSchemas.js';
 import LoginComponent from '../../components/PagesComponents/LogIn.jsx';
 import loginAvatar from '../../assets/imgLoginPage/avatar_login.png';
 import { ROUTES } from '../../utils/router.js';
 import useAuthContext from '../../hooks/useAuthContext.js';
+import useToast from '../../hooks/useToast';
 
 const Login = () => {
   const { t } = useTranslation();
@@ -23,7 +24,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const [logInRequest] = useAuthenticateUserLogIn();
   const { logIn } = useAuthContext();
-  const loginValidationSchema = useLoginValidationSchema();
+  const loginValidationSchema = getLoginValidationSchema(t);
+  const showToastMessage = useToast();
 
   const handleFormSubmit = async (values, { setSubmitting, setErrors }) => {
     try {
@@ -35,20 +37,20 @@ const Login = () => {
       setSubmitting(false);
       navigate(ROUTES.homePage);
     } catch (error) {
-      console.error('Login error:', error);
       const { status } = error;
+
       switch (status) {
         case 'FETCH_ERROR':
-          toast.error(t('logInPage.errors.networkError'), {
-            position: 'top-center',
+          showToastMessage(t('logInPage.errors.networkError'), {
+            type: 'error',
           });
           break;
         case 401:
           setErrors({ password: t('logInPage.errors.invalidCredentials') });
           break;
         default:
-          toast.error(t('logInPage.errors.unknownError'), {
-            position: 'top-center',
+          showToastMessage(t('logInPage.errors.unknownError'), {
+            type: 'error',
           });
           break;
       }
