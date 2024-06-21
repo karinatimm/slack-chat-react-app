@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { Form as BootstrapForm, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { toast } from 'react-toastify';
 import filter from 'leo-profanity';
 import sendMsgBtnImg from '../../assets/imgHomePage/send-button.png';
 import { useCreateMessageMutation } from '../../api/messagesApi';
+import useToast from '../../hooks/useToast';
 
 const CreatingNewMessage = () => {
   const { currentChannelId } = useSelector((state) => state.appManaging);
@@ -21,6 +21,7 @@ const CreatingNewMessage = () => {
   }, [currentChannelId]);
 
   const [createMessage] = useCreateMessageMutation();
+  const showToastMessage = useToast();
 
   const handleCreatingNewMessage = async (body, resetForm) => {
     const cleanedTextOfNewMessage = filter.clean(body);
@@ -30,12 +31,12 @@ const CreatingNewMessage = () => {
         channelId: currentChannelId,
         username,
         body: cleanedTextOfNewMessage,
-      });
+      }).unwrap();
+
       resetForm();
     } catch (error) {
-      toast.error(t('homePage.toastMessages.errors.sendMessageError'), {
-        position: 'top-center',
-        autoClose: 2000,
+      showToastMessage(t('homePage.toastMessages.errors.sendMessageError'), {
+        type: 'error',
       });
     }
   };
