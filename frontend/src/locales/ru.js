@@ -1,6 +1,9 @@
 export default {
   translation: {
     logInPage: {
+      img: {
+        loginAlt: 'Изображение при входе',
+      },
       form: {
         formTitle: 'Войти',
         username: 'Ваш ник',
@@ -22,6 +25,9 @@ export default {
       },
     },
     signUpPage: {
+      img: {
+        signUpAlt: 'Изображение при регистрации',
+      },
       form: {
         formTitle: 'Регистрация',
         username: 'Имя пользователя',
@@ -46,6 +52,9 @@ export default {
       notFoundPageTitle: 'Страница не найдена',
       notFoundPageText: 'Но вы можете перейти',
       notFoundPageLink: 'на главную страницу',
+      img: {
+        notFoundAlt: 'Изображение при ошибке',
+      },
     },
     homePage: {
       channels: 'Каналы',
