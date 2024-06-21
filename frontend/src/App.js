@@ -27,7 +27,7 @@ const getElement = (key) => {
 
 const App = () => (
   <BrowserRouter>
-    <div className="d-flex flex-column h-100">
+    <div className="d-flex flex-column" style={{ minHeight: '100vh' }}>
       <MainNav />
 
       <Routes>
