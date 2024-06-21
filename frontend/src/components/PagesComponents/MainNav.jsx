@@ -1,35 +1,22 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import useAuthContext from '../../hooks/useAuthContext.js';
 import { ROUTES } from '../../utils/router.js';
 
 const MainNav = () => {
   const { isAuthenticated, logOut } = useAuthContext();
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   const handleLogOut = () => {
     logOut();
-    navigate(ROUTES.homePage);
-  };
-
-  const handleHomeClick = (event) => {
-    event.preventDefault();
-    navigate(ROUTES.homePage);
   };
 
   return (
     <nav className="shadow-sm navbar navbar-expand-lg navbar-light bg-white">
       <div className="container">
-        <a
-          href={ROUTES.homePage}
-          className="navbar-brand"
-          role="button"
-          onClick={handleHomeClick}
-          style={{ cursor: 'pointer' }}
-        >
+        <Link to={ROUTES.homePage} className="navbar-brand">
           Hexlet Chat
-        </a>
+        </Link>
         {isAuthenticated && (
           <button
             type="button"
