@@ -5,19 +5,20 @@ import {
 import { Modal, Form as BootstrapForm, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { toast } from 'react-toastify';
 import filter from 'leo-profanity';
 import { useUpdateChannelMutation } from '../../api/channelsApi.js';
-import { useChannelValidationSchema } from '../../utils/validationSchemas.js';
+import { getChannelValidationSchema } from '../../utils/validationSchemas.js';
+import useToast from '../../hooks/useToast';
 
 const RenameChannelModalComponent = ({ handleClosingModalWindow }) => {
-  const { currEditedChannelId, currEditedChannel } = useSelector(
+  const { currEditedChannelId, currEditedChannel, channels } = useSelector(
     (state) => state.appManaging,
   );
   const { t } = useTranslation();
-  const channelSchema = useChannelValidationSchema();
+  const channelSchema = getChannelValidationSchema(t, channels);
   const [updateChannel] = useUpdateChannelMutation();
   const modalInputRef = useRef();
+  const showToastMessage = useToast();
 
   useEffect(() => {
     modalInputRef.current.focus();
@@ -33,16 +34,16 @@ const RenameChannelModalComponent = ({ handleClosingModalWindow }) => {
     };
 
     try {
-      await updateChannel(newChannel);
-      toast.success(t('homePage.modalWindow.channelRenamed'), {
-        position: 'top-center',
-        autoClose: 2000,
+      await updateChannel(newChannel).unwrap();
+
+      showToastMessage(t('homePage.modalWindow.channelRenamed'), {
+        type: 'success',
       });
+
       handleClosingModalWindow();
     } catch (error) {
-      toast.error(t('homePage.modalWindow.channelRenameError'), {
-        position: 'top-center',
-        autoClose: 2000,
+      showToastMessage(t('homePage.modalWindow.channelRenameError'), {
+        type: 'error',
       });
     }
   };
