@@ -10,8 +10,9 @@ import store from './store/store';
 import initializeI18n from './utils/i18nConfig';
 import initializeFilter from './utils/filterConfig';
 import rollbarConfig from './utils/rollbarConfig';
+import ToastProvider from './context/toast/ToastProvider';
 
-const Init = async () => {
+const init = async () => {
   const socket = io();
   const i18n = await initializeI18n();
 
@@ -25,7 +26,9 @@ const Init = async () => {
             <I18nextProvider i18n={i18n}>
               <SocketProvider socket={socket}>
                 <AuthProvider>
-                  <App />
+                  <ToastProvider>
+                    <App />
+                  </ToastProvider>
                 </AuthProvider>
               </SocketProvider>
             </I18nextProvider>
@@ -36,4 +39,4 @@ const Init = async () => {
   );
 };
 
-export default Init;
+export default init;
