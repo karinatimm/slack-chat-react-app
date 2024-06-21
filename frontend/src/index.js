@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom/client';
-import Init from './init';
+import init from './init';
 
 const renderApp = async () => {
   const root = ReactDOM.createRoot(document.getElementById('root'));
-  const app = await Init();
+  const app = await init();
   root.render(app);
 };
 
