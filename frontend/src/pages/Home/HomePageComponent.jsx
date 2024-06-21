@@ -5,7 +5,7 @@ import { useFetchChannelsQuery } from '../../api/channelsApi';
 import { useFetchMessagesQuery } from '../../api/messagesApi';
 import { toggleModal } from '../../store/entities/appSlice';
 import ChannelsListToolbar from '../../containers/ChannelsContainers/ChannelsListToolbar';
-import MessageListBox from '../../components/MessagesComponents/MessageListBox';
+import MessageListBox from '../../containers/MessagesContainers/MessageListBox';
 import CreatingNewMessage from '../../containers/MessagesContainers/CreatingNewMessage';
 import { SocketContext } from '../../context/socketConnection/SocketContext';
 import RenderModalSwitcher from '../../components/ModalRenderingComponents/RenderModalSwitcher';
@@ -27,8 +27,14 @@ const HomePageComponent = () => {
   useSocket(socket);
 
   return (
-    <div className="container h-100 my-4 overflow-hidden rounded shadow">
-      <div className="row h-100 bg-white flex-md-row">
+    <div
+      className="container h-100 my-4 overflow-hidden rounded shadow"
+      style={{ minHeight: '100vh' }}
+    >
+      <div
+        className="row h-100 bg-white flex-md-row"
+        style={{ minHeight: '100vh' }}
+      >
         <ChannelsListToolbar channels={channels} />
 
         <MessageListBox messages={messages}>
