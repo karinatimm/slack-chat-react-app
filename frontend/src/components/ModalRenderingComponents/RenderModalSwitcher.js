@@ -1,7 +1,7 @@
 import React from 'react';
 import AddChannelModalComponent from '../../containers/ModalContainers/AddingChannelModal';
 import RenameChannelComponent from '../../containers/ModalContainers/RenamingChannelModal';
-import RenameChannelModalComponent from '../../containers/ModalContainers/DeletingChannelModal';
+import DeleteChannelModalComponent from '../../containers/ModalContainers/DeletingChannelModal';
 
 const RenderModalSwitcher = ({ isOpen, type, handleClosingModalWindow }) => {
   if (!isOpen) return null;
@@ -13,7 +13,7 @@ const RenderModalSwitcher = ({ isOpen, type, handleClosingModalWindow }) => {
       ModalComponent = AddChannelModalComponent;
       break;
     case 'deletingChannel':
-      ModalComponent = RenameChannelModalComponent;
+      ModalComponent = DeleteChannelModalComponent;
       break;
     case 'renamingChannel':
       ModalComponent = RenameChannelComponent;
