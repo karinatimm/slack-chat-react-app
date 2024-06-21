@@ -3,7 +3,7 @@ import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
 import { Form as BootstrapForm, Button } from 'react-bootstrap';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
@@ -11,11 +11,12 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useAuthenticateUserSignUp } from '../../api/authApi.js';
 import { setUserData } from '../../store/entities/authSlice.js';
-import { useSignUpValidationSchema } from '../../utils/validationSchemas.js';
+import { getSignUpValidationSchema } from '../../utils/validationSchemas.js';
 import SignUpComponent from '../../components/PagesComponents/SignUp.jsx';
 import signUpAvatar from '../../assets/imgSignUpPage/avatar_signUp.png';
 import { ROUTES } from '../../utils/router.js';
 import useAuthContext from '../../hooks/useAuthContext.js';
+import useToast from '../../hooks/useToast';
 
 const SignUp = () => {
   const { t } = useTranslation();
@@ -23,7 +24,8 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const [signUpRequest] = useAuthenticateUserSignUp();
   const { logIn } = useAuthContext();
-  const signUpValidationSchema = useSignUpValidationSchema();
+  const signUpValidationSchema = getSignUpValidationSchema(t);
+  const showToastMessage = useToast();
 
   const handleFormSubmit = async (values, { setSubmitting, setErrors }) => {
     try {
@@ -35,16 +37,15 @@ const SignUp = () => {
       setSubmitting(false);
       navigate(ROUTES.homePage);
     } catch (error) {
-      console.error('SignUp error:', error);
-
       const { status } = error;
 
       switch (status) {
         case 'FETCH_ERROR':
-          toast.error(t('signUpPage.errors.networkError'), {
-            position: 'top-center',
+          showToastMessage(t('signUpPage.errors.networkError'), {
+            type: 'error',
           });
           break;
+
         case 409:
           setErrors({
             username: ' ',
@@ -53,8 +54,8 @@ const SignUp = () => {
           });
           break;
         default:
-          toast.error(t('signUpPage.errors.unknownError'), {
-            position: 'top-center',
+          showToastMessage(t('signUpPage.errors.unknownError'), {
+            type: 'error',
           });
           break;
       }
