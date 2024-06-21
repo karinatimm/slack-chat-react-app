@@ -3,9 +3,9 @@ import { Formik, Form } from 'formik';
 import { Modal, Button, FormGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { toast } from 'react-toastify';
 import { switchChannel } from '../../store/entities/appSlice.js';
 import { useDeleteChannelMutation } from '../../api/channelsApi.js';
+import useToast from '../../hooks/useToast';
 
 const DeleteChannelModalComponent = ({ handleClosingModalWindow }) => {
   const { currentChannelId, currEditedChannelId } = useSelector(
@@ -14,25 +14,25 @@ const DeleteChannelModalComponent = ({ handleClosingModalWindow }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [deleteChannel] = useDeleteChannelMutation();
+  const showToastMessage = useToast();
 
   const handleDeletingChannel = async () => {
     try {
-      await deleteChannel({ id: currEditedChannelId });
+      await deleteChannel({
+        id: currEditedChannelId,
+      }).unwrap();
 
       if (currentChannelId === currEditedChannelId) {
         dispatch(switchChannel({ name: 'general', id: '1' }));
       }
-
-      toast.success(t('homePage.modalWindow.channelRemoved'), {
-        position: 'top-center',
-        autoClose: 2000,
+      showToastMessage(t('homePage.modalWindow.channelRemoved'), {
+        type: 'success',
       });
 
       handleClosingModalWindow();
     } catch (err) {
-      toast.error(t('homePage.modalWindow.channelRemoveError'), {
-        position: 'top-center',
-        autoClose: 2000,
+      showToastMessage(t('homePage.modalWindow.channelRemoveError'), {
+        type: 'error',
       });
     }
   };
