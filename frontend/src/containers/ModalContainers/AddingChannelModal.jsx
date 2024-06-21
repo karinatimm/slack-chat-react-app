@@ -3,20 +3,22 @@ import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
 import { Modal, Form as BootstrapForm, Button } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { toast } from 'react-toastify';
 import filter from 'leo-profanity';
 import { useCreateChannelMutation } from '../../api/channelsApi.js';
 import { switchChannel } from '../../store/entities/appSlice.js';
-import { useChannelValidationSchema } from '../../utils/validationSchemas.js';
+import { getChannelValidationSchema } from '../../utils/validationSchemas.js';
+import useToast from '../../hooks/useToast';
 
 const AddChannelModalComponent = ({ handleClosingModalWindow }) => {
   const { t } = useTranslation();
-  const channelSchema = useChannelValidationSchema();
+  const channels = useSelector((state) => state.appManaging.channels);
+  const channelSchema = getChannelValidationSchema(t, channels);
   const [createChannel] = useCreateChannelMutation();
   const dispatch = useDispatch();
   const modalInputRef = useRef(null);
+  const showToastMessage = useToast();
 
   useEffect(() => {
     modalInputRef.current.focus();
@@ -27,20 +29,18 @@ const AddChannelModalComponent = ({ handleClosingModalWindow }) => {
     const newChannelData = { name: cleanedAddingChannelName };
 
     try {
-      const response = await createChannel(newChannelData);
-      const { name: channelNameResponse, id: channelId } = response.data;
+      const response = await createChannel(newChannelData).unwrap();
+      const { name: channelNameResponse, id: channelId } = response;
 
-      toast.success(t('homePage.modalWindow.channelCreated'), {
-        position: 'top-center',
-        autoClose: 2000,
+      showToastMessage(t('homePage.modalWindow.channelCreated'), {
+        type: 'success',
       });
 
       handleClosingModalWindow();
       dispatch(switchChannel({ name: channelNameResponse, id: channelId }));
     } catch (error) {
-      toast.error(t('homePage.modalWindow.channelCreationError'), {
-        position: 'top-center',
-        autoClose: 2000,
+      showToastMessage(t('homePage.modalWindow.channelCreationError'), {
+        type: 'error',
       });
     }
   };
