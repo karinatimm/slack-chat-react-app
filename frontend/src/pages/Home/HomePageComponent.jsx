@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { useFetchChannelsQuery } from '../../api/channelsApi';
@@ -27,14 +27,8 @@ const HomePageComponent = () => {
   useSocket(socket);
 
   return (
-    <div
-      className="container h-100 my-4 overflow-hidden rounded shadow"
-      style={{ minHeight: '100vh' }}
-    >
-      <div
-        className="row h-100 bg-white flex-md-row"
-        style={{ minHeight: '100vh' }}
-      >
+    <div className="container h-100 my-4 overflow-hidden rounded shadow">
+      <div className="row h-100 bg-white flex-md-row">
         <ChannelsListToolbar channels={channels} />
 
         <MessageListBox messages={messages}>
