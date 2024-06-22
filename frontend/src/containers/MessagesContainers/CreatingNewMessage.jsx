@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { Form as BootstrapForm, Button } from 'react-bootstrap';
@@ -34,6 +34,12 @@ const CreatingNewMessage = () => {
       }).unwrap();
 
       resetForm();
+
+      setTimeout(() => {
+        if (inputNewMessageRef.current) {
+          inputNewMessageRef.current.focus();
+        }
+      }, 0);
     } catch (error) {
       showToastMessage(t('homePage.toastMessages.errors.sendMessageError'), {
         type: 'error',
