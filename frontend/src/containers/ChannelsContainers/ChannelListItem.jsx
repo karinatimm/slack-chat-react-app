@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ButtonGroup, Dropdown } from 'react-bootstrap';
 import { toggleModal, switchChannel } from '../../store/entities/appSlice';
