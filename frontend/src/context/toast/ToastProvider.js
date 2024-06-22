@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import { useMemo, useCallback } from 'react';
 import { toast as showToast } from 'react-toastify';
 import ToastContext from './ToastContext';
 
