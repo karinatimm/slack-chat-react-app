@@ -4,6 +4,7 @@ import { channelsApi } from '../api/channelsApi';
 import { messagesApi } from '../api/messagesApi';
 import { switchChannel } from '../store/entities/appSlice';
 import { SocketContext } from '../context/socketConnection/SocketContext';
+import { DEFAULT_CHANNEL } from '../utils/config';
 
 const useSocket = (currentChannelId) => {
   const dispatch = useDispatch();
@@ -69,8 +70,15 @@ const useSocket = (currentChannelId) => {
           (existingChannels) => existingChannels.filter((channel) => channel.id !== id),
         ),
       );
+      dispatch(
+        messagesApi.util.updateQueryData(
+          'fetchMessages',
+          undefined,
+          (existingMessages) => existingMessages.filter((message) => message.channelId !== id),
+        ),
+      );
       if (currentChannelId === id) {
-        dispatch(switchChannel({ name: 'general', id: '1' }));
+        dispatch(switchChannel(DEFAULT_CHANNEL));
       }
     },
     [currentChannelId, dispatch],
