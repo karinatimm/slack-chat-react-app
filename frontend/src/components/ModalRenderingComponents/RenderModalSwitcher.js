@@ -1,4 +1,3 @@
-import React from 'react';
 import AddChannelModalComponent from '../../containers/ModalContainers/AddingChannelModal';
 import RenameChannelComponent from '../../containers/ModalContainers/RenamingChannelModal';
 import DeleteChannelModalComponent from '../../containers/ModalContainers/DeletingChannelModal';
