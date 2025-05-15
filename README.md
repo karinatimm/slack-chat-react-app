@@ -2,7 +2,7 @@
 
 ### Project Description
 
-Slack Chat is a simplified clone of Slack — a real-time messaging application. This project showcases various features typical of a modern chat application, including web socket communication, REST API interactions, and state management with React and Redux. Additionally, it implements client-side routing, user authentication and authorization, and more. Feel free to explore the deployed application and provide feedback or suggestions for improvement.
+Slack Chat is a simplified clone of Slack – a real-time messaging application. This project showcases various features typical of a modern chat application, including web socket communication, REST API interactions, and state management with React and Redux. Additionally, it implements client-side routing, user authentication and authorization, and more. Feel free to explore the deployed application and provide feedback or suggestions for improvement.
 
 You can log in using the test account:
 
