@@ -1,8 +1,8 @@
-# Hexlet Slack Chat
+# Slack Chat
 
 ### Project Description
 
-Hexlet Slack Chat is a simplified version of Slack Chat, a real-time messaging application. This project showcases various features typical of a modern chat application, including web socket communication, REST API interactions, and state management with React and Redux. Additionally, it implements client-side routing, user authentication and authorization, and more. Feel free to explore the deployed application and provide feedback or suggestions for improvement.
+Slack Chat is a simplified clone of Slack — a real-time messaging application. This project showcases various features typical of a modern chat application, including web socket communication, REST API interactions, and state management with React and Redux. Additionally, it implements client-side routing, user authentication and authorization, and more. Feel free to explore the deployed application and provide feedback or suggestions for improvement.
 
 ### Features
 
@@ -22,18 +22,18 @@ Hexlet Slack Chat is a simplified version of Slack Chat, a real-time messaging a
 ### Deployment
 
 This project has been deployed on Vercel and is accessible at the following URL:
-[Hexlet Slack Chat on Render](https://slack-chat-ulm3.onrender.com/)
+[Slack Chat on Render](https://slack-chat-ulm3.onrender.com/)
 
 ## System Requirements to run chat locally:
 
-To run the Hexlet Chat project locally, ensure you have the following software installed on your system:
+To run the Slack Chat project locally, ensure you have the following software installed on your system:
 
 - Node.js(version 20.3.0 LTS or higher) **(https://nodejs.org/)**
 - Node Package Manager(npm) **(https://www.npmjs.com/)**
 
 ### Installation and usage instructions:
 
-Follow these steps to install and run the Hexlet Chat app locally:
+Follow these steps to install and run the Slack Chat app locally:
 
 - Check if Node.js and npm are installed:
 
@@ -42,7 +42,7 @@ Open your terminal or command prompt and run the following commands to check if 
 **node -v**
 **npm -v**
 
-- Clone the Hexlet Chat app repository:
+- Clone the Slack Chat app repository:
 
 Navigate to your desired directory and clone the repository from GitHub using the following command:
 
@@ -58,7 +58,7 @@ Navigate to your desired directory and clone the repository from GitHub using th
 
 ### Quality Assurance
 
-### Hexlet tests and linter status:
+### Tests and linter status:
 
 [![Actions Status](https://github.com/karinatimm/frontend-project-12/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/karinatimm/frontend-project-12/actions)
 
