@@ -51,11 +51,11 @@ Open your terminal or command prompt and run the following commands to check if 
 
 Navigate to your desired directory and clone the repository from GitHub using the following command:
 
-**git clone https://github.com/karinatimm/frontend-project-12.git**
+**git clone https://github.com/karinatimm/slack-chat-react-app.git**
 
 - Move to the project directory:
 
-**cd frontend-project-12**
+**cd slack-chat-react-app**
 
 - Install the necessary dependencies:
 
@@ -65,12 +65,12 @@ Navigate to your desired directory and clone the repository from GitHub using th
 
 ### Tests and linter status:
 
-[![Actions Status](https://github.com/karinatimm/frontend-project-12/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/karinatimm/frontend-project-12/actions)
+[![Actions Status](https://github.com/karinatimm/frontend-project-12/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/karinatimm/slack-chat-react-app/actions)
 
 ### Linter status:
 
-[![ESLint Status](https://img.shields.io/badge/ESLint-Passing-brightgreen.svg)](https://github.com/karinatimm/frontend-project-12.git)
+[![ESLint Status](https://img.shields.io/badge/ESLint-Passing-brightgreen.svg)](https://github.com/karinatimm/slack-chat-react-app.git)
 
 ### CodeClimate badge in order to display this project's quality:
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/5915a574eb221b9b6937/maintainability)](https://codeclimate.com/github/karinatimm/frontend-project-12/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5915a574eb221b9b6937/maintainability)](https://codeclimate.com/github/karinatimm/slack-chat-react-app/maintainability)
