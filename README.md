@@ -4,6 +4,11 @@
 
 Slack Chat is a simplified clone of Slack — a real-time messaging application. This project showcases various features typical of a modern chat application, including web socket communication, REST API interactions, and state management with React and Redux. Additionally, it implements client-side routing, user authentication and authorization, and more. Feel free to explore the deployed application and provide feedback or suggestions for improvement.
 
+You can log in using the test account:
+
+- **Username:** `admin`
+- **Password:** `admin`
+
 ### Features
 
 - **Real-Time Messaging**: Communicate in real-time with other users.
@@ -21,7 +26,7 @@ Slack Chat is a simplified clone of Slack — a real-time messaging application.
 
 ### Deployment
 
-This project has been deployed on Vercel and is accessible at the following URL:
+This project has been deployed on Render and is accessible at the following URL:
 [Slack Chat on Render](https://slack-chat-ulm3.onrender.com/)
 
 ## System Requirements to run chat locally:
