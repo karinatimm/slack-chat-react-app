@@ -15,7 +15,7 @@ const MainNav = () => {
     <nav className="shadow-sm navbar navbar-expand-lg navbar-light bg-white">
       <div className="container">
         <Link to={ROUTES.homePage} className="navbar-brand">
-          Hexlet Chat
+          Slack Chat
         </Link>
         {isAuthenticated && (
           <button
